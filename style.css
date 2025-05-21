@@ -1,0 +1,258 @@
+:root {
+  --red: hsl(0, 78%, 62%);
+  --cyan: rgb(69, 211, 211);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  --grey-500: hsl(234, 12%, 34%);
+  --grey-400: hsl(210, 6%, 44%);
+  --white: hsl(0, 0%, 100%);
+  --bg: rgba(250, 250, 250, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--grey-400);
+}
+
+h1 {
+  font-size: clamp(1.3rem, 4vw, 2.2rem);
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: var(--grey-500);
+}
+
+body {
+  background-color: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  font-size: 15px;
+  gap: 4rem;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.8rem;
+  max-width: 34rem;
+}
+
+header > h1:last-child {
+  color: var(--grey-500);
+}
+
+header > p {
+  font-size: clamp(0.91rem, 2vw, 0.95rem);
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: var(--white);
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(51, 31, 231, 0.08);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.4rem;
+  max-width: 22rem;
+  height: 16rem;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--grey-400);
+  border-radius: 5px 5px 0 0;
+}
+
+.card > img {
+  position: absolute;
+  bottom: 3rem;
+  right: 2rem;
+}
+
+.card > p {
+  font-size: 0.8rem;
+}
+
+#supervisor {
+  grid-row: span 2 / span 2;
+}
+
+#karma {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+#calculator {
+  grid-row: span 2 / span 2;
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+
+#supervisor::before {
+  background-color: var(--cyan);
+}
+
+#team-builder::before {
+  background-color: var(--red);
+}
+
+#karma::before {
+  background-color: var(--orange);
+}
+
+#calculator::before {
+  background-color: var(--blue);
+}
+
+.card:hover {
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-0.5rem);
+  cursor: pointer;
+}
+
+#supervisor:hover {
+  box-shadow: 0 8px 16px rgba(69, 211, 211, 0.336);
+}
+
+#team-builder:hover {
+  box-shadow: 0 8px 16px rgba(255, 0, 0, 0.336);
+}
+
+#karma:hover {
+  box-shadow: 0 8px 16px rgba(255, 165, 0, 0.336);
+}
+
+#calculator:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 255, 0.336);
+}
+
+.attribution {
+  font-size: 11px;
+  position: absolute;
+  bottom: 1rem;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    width: calc(100% - 4rem);
+  }
+
+  section {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  #supervisor {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row: span 1;
+  }
+
+  #team-builder {
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+
+  #karma {
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
+
+  #calculator {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-row: span 1;
+  }
+}
+
+@media screen and (max-width: 504px) {
+  header {
+    width: 100%;
+  }
+
+  section {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  #supervisor {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row: span 1;
+  }
+
+  #team-builder {
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
+
+  #karma {
+    grid-column-start: 1;
+    grid-row-start: 3;
+  }
+
+  #calculator {
+    grid-column-start: 1;
+    grid-row-start: 4;
+    grid-row: span 1;
+  }
+}
